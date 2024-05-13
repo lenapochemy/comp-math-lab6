@@ -1,3 +1,8 @@
+import methods.EulerMethod;
+import methods.Methods;
+import methods.MilneMethod;
+import methods.RungeKuttaMethod;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.HashMap;
@@ -25,7 +30,7 @@ public class Main {
         int num = scannerManager.sayFunctionNumber(funcString);
         double x0 = scannerManager.sayX0(num);
         double xn = scannerManager.sayXn(x0, num);
-        double y0 = scannerManager.sayY0(x0);
+        double y0 = scannerManager.sayDoubleNumber("начальное условие - значение для точки " + x0);
         double h = scannerManager.sayDoubleNumber("начального шага");
         double eps = scannerManager.sayEpsilon();
 //        int num = 1;
@@ -102,6 +107,12 @@ public class Main {
             }
         }
 
+        printTable(n, x, y, euler, runge, milne);
+
+
+    }
+
+    public static void printTable(int n, double[] x, double[] y, double[] euler, double[] runge, double[] milne){
         int nEuler = 1, nRunge = 1;
 
         String res =  String.format(" %-3s|", "i");
@@ -122,7 +133,6 @@ public class Main {
 
         System.out.println(res);
 
-
         for(int i = 0; i <= n; i++){
             res = String.format(" %-3s|", i);
             res += String.format(" %-7s|", rounding(x[i]));
@@ -136,10 +146,8 @@ public class Main {
             if(milne != null){
                 res += String.format(" %-17s|", rounding(milne[i]));
             }
-
             System.out.println(res);
         }
-
     }
 
     public static double rounding(double number){

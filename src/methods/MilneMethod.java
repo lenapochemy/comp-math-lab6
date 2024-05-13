@@ -1,3 +1,5 @@
+package methods;
+
 import java.util.function.BiFunction;
 
 public class MilneMethod {
@@ -10,7 +12,7 @@ public class MilneMethod {
     public double[] milneX, milneY;
     private final double[] firstX, firstY, fi;
 
-    MilneMethod(BiFunction<Double, Double, Double> func, double h, double x0, double xn, double y0, double eps,
+    public MilneMethod(BiFunction<Double, Double, Double> func, double h, double x0, double xn, double y0, double eps,
                 double[] firstX, double[] firstY){
         this.func = func;
         this.h = h;

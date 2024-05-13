@@ -1,8 +1,10 @@
 
+import methods.Methods;
+
 import java.util.*;
 
 public class ScannerManager {
-    private Scanner scanner;
+    private final Scanner scanner;
     public ScannerManager(Scanner scanner){
         this.scanner = scanner;
     }
@@ -102,10 +104,6 @@ public class ScannerManager {
                System.out.println("Функция не определена в точке " + a + ", выберите другой интервал");
                 a = sayDoubleNumber("левой границы интервала");
             }
-//            while(a == -1.0){
-//                System.out.println("Функция не определена в точке -1, выберите другой интервал");
-//                a = sayDoubleNumber("левой границы интервала");
-//            }
         }
         if(num == 4){
             while(a == 0 || a == -1.0){
@@ -119,9 +117,7 @@ public class ScannerManager {
     public double sayXn(double a, int num) {
         double b = a;
         boolean flag;
-        if(num == 2) {
-            flag = true;
-        } else flag = false;
+        flag = num == 2;
 
         while(b <= a || flag) {
             b = sayDoubleNumber("правой границы интервала");
@@ -150,10 +146,6 @@ public class ScannerManager {
             }
         }
         return b;
-    }
-
-    public double sayY0(double x0){
-        return sayDoubleNumber("начальное условие - значение для точки " + x0);
     }
 
     public double sayDoubleNumber(String name){
