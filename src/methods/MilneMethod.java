@@ -31,7 +31,7 @@ public class MilneMethod {
     }
 
     public void solve(){
-        System.out.println("milne");
+        System.out.println("Метод Милна");
         System.out.println("Решение найдено при h = " + h);
         System.out.println("-------------------------");
 

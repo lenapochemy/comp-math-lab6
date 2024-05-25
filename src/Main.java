@@ -64,7 +64,7 @@ public class Main {
             x[i] = xi;
             c = cFunc[num];
             y[i] = realFunctions.get(num).apply(c, xi);
-            System.out.println(x[i] + " " + y[i]);
+//            System.out.println(x[i] + " " + y[i]);
             xi += h;
         }
 
